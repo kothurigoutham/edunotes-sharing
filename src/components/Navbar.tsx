@@ -48,7 +48,7 @@ const Navbar = () => {
             <Button size="sm" asChild>
               <Link to="/login" className="gap-2">
                 <LogIn className="h-4 w-4" />
-                CR Login
+                Sign In
               </Link>
             </Button>
           )}

@@ -51,10 +51,10 @@ const Login = () => {
               {isSignUp ? <UserPlus className="h-6 w-6 text-primary-foreground" /> : <LogIn className="h-6 w-6 text-primary-foreground" />}
             </div>
             <CardTitle className="font-display text-2xl">
-              {isSignUp ? "Create Account" : "CR Login"}
+              {isSignUp ? "Create Account" : "Sign In"}
             </CardTitle>
             <CardDescription>
-              {isSignUp ? "Sign up to get started" : "Sign in to manage notes"}
+              {isSignUp ? "Sign up to access and download notes" : "Sign in to access notes"}
             </CardDescription>
           </CardHeader>
           <CardContent>
