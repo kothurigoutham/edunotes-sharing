@@ -182,7 +182,7 @@ const Index = () => {
           <div className="container mx-auto px-4 text-center">
             <h2 className="mb-4 font-display text-3xl font-bold text-primary-foreground sm:text-4xl">Ready to Share?</h2>
             <p className="mx-auto mb-8 max-w-md text-primary-foreground/80">
-              Join StudyVault and help students everywhere by uploading your notes.
+              Join EduNotes and help students everywhere by uploading your notes.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4">
               <Button size="lg" asChild className="bg-primary-foreground px-8 text-base font-semibold text-primary hover:bg-primary-foreground/90">
