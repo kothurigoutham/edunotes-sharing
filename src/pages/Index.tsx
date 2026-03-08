@@ -16,7 +16,7 @@ const features = [
 ];
 
 const testimonials = [
-  "StudyVault saved my semester! Found exactly what I needed.",
+  "EduNotes saved my semester! Found exactly what I needed.",
   "Uploading my notes helped classmates and boosted my GPA.",
   "Clean, fast, and organized — the best place for study notes.",
 ];
