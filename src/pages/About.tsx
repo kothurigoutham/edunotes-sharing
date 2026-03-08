@@ -63,6 +63,27 @@ const About = () => {
                 </p>
               </div>
             </div>
+
+            <div className="mt-12 text-center">
+              <h2 className="mb-4 font-display text-3xl font-bold text-foreground">Meet the Team</h2>
+              <p className="mb-6 text-muted-foreground">The people behind EduNotes</p>
+              <div className="flex flex-wrap justify-center gap-6">
+                <div className="rounded-xl border bg-card p-6 shadow-card text-center min-w-[200px]">
+                  <div className="mx-auto mb-3 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
+                    <GraduationCap className="h-8 w-8 text-primary" />
+                  </div>
+                  <h3 className="font-display text-lg font-bold text-foreground">K. Goutham</h3>
+                  <p className="text-sm text-muted-foreground">Co-Founder</p>
+                </div>
+                <div className="rounded-xl border bg-card p-6 shadow-card text-center min-w-[200px]">
+                  <div className="mx-auto mb-3 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
+                    <GraduationCap className="h-8 w-8 text-primary" />
+                  </div>
+                  <h3 className="font-display text-lg font-bold text-foreground">P. Aravind</h3>
+                  <p className="text-sm text-muted-foreground">Co-Founder</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
