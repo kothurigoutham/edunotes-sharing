@@ -65,6 +65,27 @@ const Profile = () => {
               )}
             </div>
 
+            {/* CR deactivation */}
+            {isCR && (
+              <div className="space-y-3 rounded-lg border border-destructive/30 bg-destructive/5 p-4">
+                <p className="text-sm font-semibold text-destructive flex items-center gap-2">
+                  <LogOut className="h-4 w-4" />
+                  Leave CR Role
+                </p>
+                <p className="text-xs text-muted-foreground">
+                  Step down from your CR role. You will lose access to Upload Notes and the CR Dashboard.
+                </p>
+                <Button
+                  variant="destructive"
+                  className="w-full font-semibold"
+                  disabled={submitting}
+                  onClick={handleDeactivateCR}
+                >
+                  {submitting ? "Processing..." : "Leave CR Role"}
+                </Button>
+              </div>
+            )}
+
             {/* CR activation */}
             {!isCR && (
               <form onSubmit={handleActivateCR} className="space-y-3 rounded-lg border border-primary/30 bg-primary/5 p-4">
