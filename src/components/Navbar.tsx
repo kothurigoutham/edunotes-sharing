@@ -86,8 +86,15 @@ const Navbar = () => {
               </Button>
             </div>
           ) : (
-
-          {/* Mobile menu toggle */}
+            <>
+              <Button variant="outline" size="sm" asChild>
+                <Link to="/login">Log in</Link>
+              </Button>
+              <Button size="sm" asChild className="gradient-primary border-0">
+                <Link to="/login">Sign up</Link>
+              </Button>
+            </>
+          )}
           <Button variant="ghost" size="icon" className="md:hidden" onClick={() => setMobileOpen(!mobileOpen)}>
             {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </Button>
