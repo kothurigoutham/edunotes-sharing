@@ -28,6 +28,7 @@ const Navbar = () => {
     { to: "/", label: "Home" },
     { to: "/#browse", label: "Browse Notes" },
     { to: "/upload", label: "Upload Notes", crOnly: true },
+    { to: "/dashboard", label: "CR Dashboard", crOnly: true },
     { to: "/about", label: "About Us" },
     { to: "/contact", label: "Contact Us" },
   ];
