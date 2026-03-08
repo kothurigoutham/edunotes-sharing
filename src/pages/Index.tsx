@@ -60,7 +60,7 @@ const Index = () => {
           year={year}
           semester={semester}
           onSearchChange={setSearch}
-          onBranchChange={setBranch}
+          onBranchChange={(v) => { setBranch(v); setYear(""); setSemester(""); }}
           onYearChange={(v) => { setYear(v); setSemester(""); }}
           onSemesterChange={setSemester}
           onClear={clearFilters}

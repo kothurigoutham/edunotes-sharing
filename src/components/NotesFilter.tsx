@@ -53,7 +53,7 @@ const NotesFilter = ({
           </SelectContent>
         </Select>
 
-        <Select value={year} onValueChange={onYearChange}>
+        <Select value={year} onValueChange={(v) => { onYearChange(v); onSemesterChange(""); }} disabled={!branch}>
           <SelectTrigger className="w-[120px]">
             <SelectValue placeholder="Year" />
           </SelectTrigger>
