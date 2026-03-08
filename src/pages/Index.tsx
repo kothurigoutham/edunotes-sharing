@@ -69,7 +69,7 @@ const Index = () => {
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4">
               <Button size="lg" asChild className="gradient-primary border-0 px-8 text-base font-semibold shadow-lg">
-                <Link to="/upload">Get Started</Link>
+                <Link to="/login?role=cr">Register as CR</Link>
               </Button>
               <Button size="lg" variant="outline" asChild className="border-primary-foreground/30 bg-primary-foreground/10 px-8 text-base font-semibold text-primary-foreground backdrop-blur-sm hover:bg-primary-foreground/20 hover:text-primary-foreground">
                 <a href="#browse">Browse Notes</a>
