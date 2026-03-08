@@ -74,10 +74,10 @@ const Upload = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       <div className="container mx-auto max-w-2xl px-4 py-8">
-        <Card className="shadow-elevated">
+        <Card className="shadow-elevated border-t-4 border-t-primary">
           <CardHeader>
-            <div className="mx-auto mb-2 flex h-12 w-12 items-center justify-center rounded-xl gradient-primary">
-              <UploadIcon className="h-6 w-6 text-primary-foreground" />
+            <div className="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-2xl gradient-primary shadow-lg">
+              <UploadIcon className="h-7 w-7 text-primary-foreground" />
             </div>
             <CardTitle className="text-center font-display text-2xl">Upload Notes</CardTitle>
             <CardDescription className="text-center">Share study material with your class</CardDescription>
@@ -126,8 +126,8 @@ const Upload = () => {
 
               <div className="space-y-2">
                 <Label htmlFor="file">PDF File</Label>
-                <div className="flex items-center gap-3 rounded-lg border border-dashed p-4">
-                  <FileUp className="h-8 w-8 text-muted-foreground" />
+                <div className="flex items-center gap-3 rounded-lg border-2 border-dashed border-primary/30 bg-primary/5 p-4 transition-colors hover:border-primary/50">
+                  <FileUp className="h-8 w-8 text-primary" />
                   <div className="flex-1">
                     <Input
                       id="file"
@@ -140,7 +140,7 @@ const Upload = () => {
                 </div>
               </div>
 
-              <Button type="submit" className="w-full" disabled={loading || !branch || !year || !semester}>
+              <Button type="submit" className="w-full gradient-primary border-0 font-semibold" disabled={loading || !branch || !year || !semester}>
                 {loading ? "Uploading..." : "Upload Note"}
               </Button>
             </form>

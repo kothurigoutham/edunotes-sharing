@@ -28,13 +28,13 @@ const NoteCard = ({ title, branch, year, semester, subject, fileName, filePath, 
   };
 
   return (
-    <Card className="group animate-fade-in shadow-card transition-all duration-300 hover:shadow-elevated hover:-translate-y-1">
+    <Card className="group animate-fade-in shadow-card transition-all duration-300 hover:shadow-elevated hover:-translate-y-1 border-t-4 border-t-primary">
       <CardContent className="p-5">
         <div className="mb-3 flex items-start justify-between">
-          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10">
-            <FileText className="h-5 w-5 text-primary" />
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg gradient-primary">
+            <FileText className="h-5 w-5 text-primary-foreground" />
           </div>
-          <Badge variant="secondary" className="text-xs">{branch}</Badge>
+          <Badge className="gradient-primary border-0 text-xs text-primary-foreground">{branch}</Badge>
         </div>
 
         <h3 className="mb-1 font-display text-base font-semibold leading-snug text-card-foreground line-clamp-2">
@@ -47,8 +47,8 @@ const NoteCard = ({ title, branch, year, semester, subject, fileName, filePath, 
         </div>
 
         <div className="mb-4 flex flex-wrap gap-1.5">
-          <Badge variant="outline" className="text-xs">Year {year}</Badge>
-          <Badge variant="outline" className="text-xs">Sem {semester}</Badge>
+          <Badge variant="outline" className="text-xs border-primary/30 text-primary">Year {year}</Badge>
+          <Badge variant="outline" className="text-xs border-primary/30 text-primary">Sem {semester}</Badge>
         </div>
 
         <div className="flex items-center justify-between">
@@ -56,7 +56,7 @@ const NoteCard = ({ title, branch, year, semester, subject, fileName, filePath, 
             <Calendar className="h-3 w-3" />
             {format(new Date(createdAt), "MMM d, yyyy")}
           </span>
-          <Button size="sm" onClick={handleDownload} className="gap-1.5">
+          <Button size="sm" onClick={handleDownload} className="gap-1.5 gradient-primary border-0 font-semibold">
             <Download className="h-3.5 w-3.5" />
             Download
           </Button>
