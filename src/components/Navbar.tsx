@@ -44,8 +44,8 @@ const Navbar = () => {
           <span className="font-display text-xl font-bold text-foreground">EduNotes</span>
         </Link>
 
-        {/* Desktop nav links */}
-        <div className="hidden items-center gap-5 lg:flex">
+        {/* Desktop nav links - horizontal row */}
+        <div className="hidden items-center gap-6 md:flex">
           {navLinks
             .filter((l) => !l.crOnly || isCR)
             .map((l) => (
