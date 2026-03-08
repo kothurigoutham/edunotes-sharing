@@ -101,7 +101,7 @@ const Upload = () => {
                 </div>
                 <div className="space-y-2">
                   <Label>Year</Label>
-                  <Select value={year} onValueChange={setYear} required>
+                  <Select value={year} onValueChange={(v) => { setYear(v); setSemester(""); }} required>
                     <SelectTrigger><SelectValue placeholder="Select" /></SelectTrigger>
                     <SelectContent>
                       {[1,2,3,4].map((y) => <SelectItem key={y} value={String(y)}>Year {y}</SelectItem>)}
@@ -110,10 +110,10 @@ const Upload = () => {
                 </div>
                 <div className="space-y-2">
                   <Label>Semester</Label>
-                  <Select value={semester} onValueChange={setSemester} required>
+                  <Select value={semester} onValueChange={setSemester} required disabled={!year}>
                     <SelectTrigger><SelectValue placeholder="Select" /></SelectTrigger>
                     <SelectContent>
-                      {[1,2,3,4,5,6,7,8].map((s) => <SelectItem key={s} value={String(s)}>Sem {s}</SelectItem>)}
+                      {year && [parseInt(year) * 2 - 1, parseInt(year) * 2].map((s) => <SelectItem key={s} value={String(s)}>Sem {s}</SelectItem>)}
                     </SelectContent>
                   </Select>
                 </div>
