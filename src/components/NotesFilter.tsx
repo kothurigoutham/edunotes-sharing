@@ -64,12 +64,12 @@ const NotesFilter = ({
           </SelectContent>
         </Select>
 
-        <Select value={semester} onValueChange={onSemesterChange}>
+        <Select value={semester} onValueChange={onSemesterChange} disabled={!year}>
           <SelectTrigger className="w-[140px]">
             <SelectValue placeholder="Semester" />
           </SelectTrigger>
           <SelectContent>
-            {SEMESTERS.map((s) => (
+            {getSemesters(year).map((s) => (
               <SelectItem key={s} value={String(s)}>Semester {s}</SelectItem>
             ))}
           </SelectContent>
