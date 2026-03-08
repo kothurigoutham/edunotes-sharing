@@ -24,35 +24,12 @@ const Login = () => {
     setLoading(true);
 
     if (isSignUp) {
-      const { error, data } = await supabase.auth.signUp({
-        email,
-        password,
-        options: { data: { full_name: fullName }, emailRedirectTo: window.location.origin },
-      });
-
+      const { error } = await signUp(email, password, fullName);
       if (error) {
         toast.error(error.message);
-        setLoading(false);
-        return;
+      } else {
+        toast.success("Account created! Check your email to confirm.");
       }
-
-      // If CR code provided, verify and assign role
-      if (crCode.trim() && data.user) {
-        const { data: verifyData, error: verifyError } = await supabase.functions.invoke(
-          "verify-cr-code",
-          { body: { code: crCode.trim(), userId: data.user.id } }
-        );
-
-        if (verifyError || !verifyData?.success) {
-          toast.warning("Account created but CR code was invalid. You're registered as a student.");
-        } else {
-          toast.success("Account created as CR! Check your email to confirm.");
-          setLoading(false);
-          return;
-        }
-      }
-
-      toast.success("Account created! Check your email to confirm.");
     } else {
       const { error } = await signIn(email, password);
       if (error) {
