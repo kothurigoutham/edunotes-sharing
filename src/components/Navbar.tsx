@@ -41,11 +41,11 @@ const Navbar = () => {
           <div className="flex h-9 w-9 items-center justify-center rounded-lg gradient-primary">
             <BookOpen className="h-5 w-5 text-primary-foreground" />
           </div>
-          <span className="font-display text-xl font-bold text-foreground">StudyVault</span>
+          <span className="font-display text-xl font-bold text-foreground">EduNotes</span>
         </Link>
 
-        {/* Desktop nav links */}
-        <div className="hidden items-center gap-5 lg:flex">
+        {/* Desktop nav links - horizontal row */}
+        <div className="hidden items-center gap-6 md:flex">
           {navLinks
             .filter((l) => !l.crOnly || isCR)
             .map((l) => (
@@ -90,7 +90,7 @@ const Navbar = () => {
           )}
 
           {/* Mobile menu toggle */}
-          <Button variant="ghost" size="icon" className="lg:hidden" onClick={() => setMobileOpen(!mobileOpen)}>
+          <Button variant="ghost" size="icon" className="md:hidden" onClick={() => setMobileOpen(!mobileOpen)}>
             {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </Button>
         </div>
@@ -98,7 +98,7 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="border-t bg-card px-4 pb-4 pt-2 lg:hidden">
+        <div className="border-t bg-card px-4 pb-4 pt-2 md:hidden">
           <form onSubmit={handleSearch} className="mb-3 sm:hidden">
             <div className="relative">
               <Search className="absolute left-2.5 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />

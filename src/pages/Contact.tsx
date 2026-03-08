@@ -63,7 +63,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="text-sm font-medium text-foreground">Email</p>
-                    <p className="text-sm text-muted-foreground">support@studyvault.com</p>
+                    <p className="text-sm text-muted-foreground">support@edunotes.com</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
@@ -120,7 +120,7 @@ const Contact = () => {
 
       <footer className="border-t bg-card py-8">
         <div className="container mx-auto px-4 text-center text-sm text-muted-foreground">
-          © {new Date().getFullYear()} StudyVault. Built for students, by students.
+          © {new Date().getFullYear()} EduNotes. Built for students, by students.
         </div>
       </footer>
     </div>

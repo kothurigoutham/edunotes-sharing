@@ -16,7 +16,7 @@ const About = () => {
           <div className="container mx-auto px-4 text-center">
             <h1 className="mb-3 font-display text-4xl font-extrabold text-primary-foreground sm:text-5xl">About Us</h1>
             <p className="mx-auto max-w-lg text-lg text-primary-foreground/80">
-              Learn more about StudyVault and our mission to help students succeed.
+              Learn more about EduNotes and our mission to help students succeed.
             </p>
           </div>
         </div>
@@ -29,7 +29,7 @@ const About = () => {
             <div className="mb-12 text-center">
               <h2 className="mb-4 font-display text-3xl font-bold text-foreground">Our Mission</h2>
               <p className="text-lg text-muted-foreground">
-                StudyVault was built with one goal — to make quality study material accessible to every student, everywhere. We believe that sharing knowledge should be simple, fast, and free.
+                EduNotes was built with one goal — to make quality study material accessible to every student, everywhere. We believe that sharing knowledge should be simple, fast, and free.
               </p>
             </div>
 
@@ -70,7 +70,7 @@ const About = () => {
       {/* Footer */}
       <footer className="border-t bg-card py-8">
         <div className="container mx-auto px-4 text-center text-sm text-muted-foreground">
-          © {new Date().getFullYear()} StudyVault. Built for students, by students.
+          © {new Date().getFullYear()} EduNotes. Built for students, by students.
         </div>
       </footer>
     </div>

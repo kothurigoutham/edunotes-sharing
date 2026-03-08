@@ -16,7 +16,7 @@ const features = [
 ];
 
 const testimonials = [
-  "StudyVault saved my semester! Found exactly what I needed.",
+  "EduNotes saved my semester! Found exactly what I needed.",
   "Uploading my notes helped classmates and boosted my GPA.",
   "Clean, fast, and organized — the best place for study notes.",
 ];
@@ -62,7 +62,7 @@ const Index = () => {
         <div className="relative z-10 py-24 sm:py-32">
           <div className="container mx-auto px-4 text-center">
             <h1 className="mb-4 font-display text-4xl font-extrabold text-primary-foreground sm:text-5xl lg:text-6xl">
-              Share & Discover Notes at <span className="block">StudyVault</span>
+              Share & Discover Notes at <span className="block">EduNotes</span>
             </h1>
             <p className="mx-auto mb-8 max-w-xl text-lg text-primary-foreground/80">
               Upload your notes, filter by subject & branch, and download what you need.
@@ -102,7 +102,7 @@ const Index = () => {
       <section className="bg-muted py-16">
         <div className="container mx-auto px-4">
           <h2 className="mb-8 text-center font-display text-3xl font-bold text-foreground">Trusted by students</h2>
-          <p className="mb-10 text-center text-muted-foreground">Real stories from real students using StudyVault.</p>
+          <p className="mb-10 text-center text-muted-foreground">Real stories from real students using EduNotes.</p>
           <div className="mx-auto flex max-w-2xl items-center gap-4">
             <button
               onClick={() => setTestimonialIdx((i) => (i === 0 ? testimonials.length - 1 : i - 1))}
@@ -182,7 +182,7 @@ const Index = () => {
           <div className="container mx-auto px-4 text-center">
             <h2 className="mb-4 font-display text-3xl font-bold text-primary-foreground sm:text-4xl">Ready to Share?</h2>
             <p className="mx-auto mb-8 max-w-md text-primary-foreground/80">
-              Join StudyVault and help students everywhere by uploading your notes.
+              Join EduNotes and help students everywhere by uploading your notes.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4">
               <Button size="lg" asChild className="bg-primary-foreground px-8 text-base font-semibold text-primary hover:bg-primary-foreground/90">
@@ -199,7 +199,7 @@ const Index = () => {
       {/* Footer */}
       <footer className="border-t bg-card py-8">
         <div className="container mx-auto px-4 text-center text-sm text-muted-foreground">
-          © {new Date().getFullYear()} StudyVault. Built for students, by students.
+          © {new Date().getFullYear()} EduNotes. Built for students, by students.
         </div>
       </footer>
     </div>
