@@ -29,7 +29,7 @@ const About = () => {
             <div className="mb-12 text-center">
               <h2 className="mb-4 font-display text-3xl font-bold text-foreground">Our Mission</h2>
               <p className="text-lg text-muted-foreground">
-                StudyVault was built with one goal — to make quality study material accessible to every student, everywhere. We believe that sharing knowledge should be simple, fast, and free.
+                EduNotes was built with one goal — to make quality study material accessible to every student, everywhere. We believe that sharing knowledge should be simple, fast, and free.
               </p>
             </div>
 
