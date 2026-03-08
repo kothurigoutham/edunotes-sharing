@@ -45,16 +45,16 @@ const Login = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       <div className="flex items-center justify-center px-4 py-16">
-        <Card className="w-full max-w-md shadow-elevated">
+        <Card className="w-full max-w-md shadow-elevated border-t-4 border-t-primary">
           <CardHeader className="text-center">
-            <div className="mx-auto mb-2 flex h-12 w-12 items-center justify-center rounded-xl gradient-primary">
-              {isSignUp ? <UserPlus className="h-6 w-6 text-primary-foreground" /> : <LogIn className="h-6 w-6 text-primary-foreground" />}
+            <div className="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-2xl gradient-primary shadow-lg">
+              {isSignUp ? <UserPlus className="h-7 w-7 text-primary-foreground" /> : <LogIn className="h-7 w-7 text-primary-foreground" />}
             </div>
             <CardTitle className="font-display text-2xl">
-              {isSignUp ? "Create Account" : "Sign In"}
+              {isSignUp ? "Create Account" : "Welcome Back"}
             </CardTitle>
             <CardDescription>
-              {isSignUp ? "Sign up to access and download notes" : "Sign in to access notes"}
+              {isSignUp ? "Sign up to access and download notes" : "Sign in to access your notes"}
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -62,18 +62,18 @@ const Login = () => {
               {isSignUp && (
                 <div className="space-y-2">
                   <Label htmlFor="fullName">Full Name</Label>
-                  <Input id="fullName" value={fullName} onChange={(e) => setFullName(e.target.value)} required />
+                  <Input id="fullName" value={fullName} onChange={(e) => setFullName(e.target.value)} placeholder="Enter your full name" required />
                 </div>
               )}
               <div className="space-y-2">
                 <Label htmlFor="email">Email</Label>
-                <Input id="email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+                <Input id="email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="you@example.com" required />
               </div>
               <div className="space-y-2">
                 <Label htmlFor="password">Password</Label>
-                <Input id="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} required minLength={6} />
+                <Input id="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="••••••••" required minLength={6} />
               </div>
-              <Button type="submit" className="w-full" disabled={loading}>
+              <Button type="submit" className="w-full gradient-primary border-0 font-semibold" disabled={loading}>
                 {loading ? "Please wait..." : isSignUp ? "Sign Up" : "Sign In"}
               </Button>
             </form>
@@ -81,7 +81,7 @@ const Login = () => {
               <button
                 type="button"
                 onClick={() => setIsSignUp(!isSignUp)}
-                className="text-sm text-primary hover:underline"
+                className="text-sm text-primary hover:underline font-medium"
               >
                 {isSignUp ? "Already have an account? Sign in" : "Need an account? Sign up"}
               </button>

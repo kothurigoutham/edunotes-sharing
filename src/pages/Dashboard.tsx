@@ -61,7 +61,7 @@ const Dashboard = () => {
             <h1 className="font-display text-2xl font-bold text-foreground">CR Dashboard</h1>
             <p className="text-sm text-muted-foreground">{notes.length} notes uploaded</p>
           </div>
-          <Button asChild>
+          <Button asChild className="gradient-primary border-0 font-semibold">
             <Link to="/upload" className="gap-2">
               <Plus className="h-4 w-4" />
               Upload New
@@ -79,10 +79,10 @@ const Dashboard = () => {
             <p className="text-muted-foreground">No notes uploaded yet.</p>
           </div>
         ) : (
-          <div className="overflow-x-auto rounded-lg border bg-card">
+          <div className="overflow-x-auto rounded-xl border bg-card shadow-card">
             <Table>
               <TableHeader>
-                <TableRow>
+                <TableRow className="bg-muted/50">
                   <TableHead>Title</TableHead>
                   <TableHead>Subject</TableHead>
                   <TableHead>Branch</TableHead>
@@ -96,7 +96,7 @@ const Dashboard = () => {
                   <TableRow key={note.id}>
                     <TableCell className="font-medium">{note.title}</TableCell>
                     <TableCell>{note.subject}</TableCell>
-                    <TableCell><Badge variant="secondary">{note.branch}</Badge></TableCell>
+                    <TableCell><Badge className="gradient-primary border-0 text-primary-foreground">{note.branch}</Badge></TableCell>
                     <TableCell>Y{note.year} / S{note.semester}</TableCell>
                     <TableCell className="text-sm text-muted-foreground">
                       {format(new Date(note.created_at), "MMM d, yyyy")}
