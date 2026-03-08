@@ -85,6 +85,26 @@ const Login = () => {
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-4">
               {isSignUp && (
+                <div className="space-y-2 rounded-lg border border-primary/30 bg-primary/5 p-3">
+                  <Label htmlFor="crCode" className="flex items-center gap-2 text-primary font-semibold">
+                    <Key className="h-4 w-4" />
+                    CR Secret Code <span className="text-xs font-normal text-muted-foreground">(optional)</span>
+                  </Label>
+                  <Input
+                    id="crCode"
+                    type="password"
+                    value={crCode}
+                    onChange={(e) => setCrCode(e.target.value)}
+                    placeholder="Enter code to register as CR"
+                    className="border-primary/30"
+                  />
+                  <p className="text-xs text-muted-foreground">
+                    Have a CR code? Enter it to get upload access.
+                  </p>
+                </div>
+              )}
+
+              {isSignUp && (
                 <div className="space-y-2">
                   <Label htmlFor="fullName">Full Name</Label>
                   <Input id="fullName" value={fullName} onChange={(e) => setFullName(e.target.value)} placeholder="Enter your full name" required />
@@ -98,25 +118,6 @@ const Login = () => {
                 <Label htmlFor="password">Password</Label>
                 <Input id="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="••••••••" required minLength={6} />
               </div>
-
-              {isSignUp && (
-                <div className="space-y-2">
-                  <Label htmlFor="crCode" className="flex items-center gap-2">
-                    <Key className="h-4 w-4 text-muted-foreground" />
-                    CR Secret Code <span className="text-xs text-muted-foreground">(optional)</span>
-                  </Label>
-                  <Input
-                    id="crCode"
-                    type="password"
-                    value={crCode}
-                    onChange={(e) => setCrCode(e.target.value)}
-                    placeholder="Enter code if you're a CR"
-                  />
-                  <p className="text-xs text-muted-foreground">
-                    Have a CR code? Enter it to get upload access.
-                  </p>
-                </div>
-              )}
 
               <Button type="submit" className="w-full gradient-primary border-0 font-semibold" disabled={loading}>
                 {loading ? "Please wait..." : isSignUp ? "Sign Up" : "Sign In"}
