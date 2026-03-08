@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { BookOpen, LogIn, LogOut, Upload, LayoutDashboard, Search, Menu, X } from "lucide-react";
+import { BookOpen, LogIn, LogOut, Upload, Search, Menu, X, UserCircle } from "lucide-react";
 
 const Navbar = () => {
   const { user, isCR, signOut } = useAuth();
