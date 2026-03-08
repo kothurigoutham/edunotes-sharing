@@ -102,7 +102,7 @@ const Index = () => {
       <section className="bg-muted py-16">
         <div className="container mx-auto px-4">
           <h2 className="mb-8 text-center font-display text-3xl font-bold text-foreground">Trusted by students</h2>
-          <p className="mb-10 text-center text-muted-foreground">Real stories from real students using StudyVault.</p>
+          <p className="mb-10 text-center text-muted-foreground">Real stories from real students using EduNotes.</p>
           <div className="mx-auto flex max-w-2xl items-center gap-4">
             <button
               onClick={() => setTestimonialIdx((i) => (i === 0 ? testimonials.length - 1 : i - 1))}
