@@ -5,7 +5,11 @@ import { Button } from "@/components/ui/button";
 
 const BRANCHES = ["CSE", "ECE", "EEE", "ME", "CE", "IT", "AIDS", "AIML"];
 const YEARS = [1, 2, 3, 4];
-const SEMESTERS = [1, 2, 3, 4, 5, 6, 7, 8];
+const getSemesters = (year: string) => {
+  if (!year) return [];
+  const y = parseInt(year);
+  return [y * 2 - 1, y * 2];
+};
 
 interface FiltersProps {
   search: string;
