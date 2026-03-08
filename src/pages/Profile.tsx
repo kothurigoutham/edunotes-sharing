@@ -32,7 +32,25 @@ const Profile = () => {
       toast.error("Invalid CR code. Please try again.");
     } else {
       toast.success("CR role activated! You now have upload access.");
-      // Refresh to pick up new role
+      window.location.reload();
+    }
+    setSubmitting(false);
+  };
+
+  const handleDeactivateCR = async () => {
+    if (!user) return;
+    setSubmitting(true);
+
+    const { error } = await supabase
+      .from("user_roles")
+      .delete()
+      .eq("user_id", user.id)
+      .eq("role", "cr");
+
+    if (error) {
+      toast.error("Failed to leave CR role. Please try again.");
+    } else {
+      toast.success("You have left the CR role.");
       window.location.reload();
     }
     setSubmitting(false);
