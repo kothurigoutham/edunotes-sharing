@@ -98,7 +98,7 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="border-t bg-card px-4 pb-4 pt-2 lg:hidden">
+        <div className="border-t bg-card px-4 pb-4 pt-2 md:hidden">
           <form onSubmit={handleSearch} className="mb-3 sm:hidden">
             <div className="relative">
               <Search className="absolute left-2.5 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
