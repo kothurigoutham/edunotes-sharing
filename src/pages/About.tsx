@@ -16,7 +16,7 @@ const About = () => {
           <div className="container mx-auto px-4 text-center">
             <h1 className="mb-3 font-display text-4xl font-extrabold text-primary-foreground sm:text-5xl">About Us</h1>
             <p className="mx-auto max-w-lg text-lg text-primary-foreground/80">
-              Learn more about StudyVault and our mission to help students succeed.
+              Learn more about EduNotes and our mission to help students succeed.
             </p>
           </div>
         </div>
