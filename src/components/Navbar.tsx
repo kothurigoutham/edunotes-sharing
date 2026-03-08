@@ -73,20 +73,19 @@ const Navbar = () => {
           </form>
 
           {user ? (
-            <Button variant="outline" size="sm" onClick={handleSignOut} className="gap-2">
-              <LogOut className="h-4 w-4" />
-              <span className="hidden sm:inline">Log out</span>
-            </Button>
+            <div className="flex items-center gap-2">
+              <Button variant="ghost" size="sm" asChild>
+                <Link to="/profile" className="gap-2">
+                  <UserCircle className="h-4 w-4" />
+                  <span className="hidden sm:inline">Profile</span>
+                </Link>
+              </Button>
+              <Button variant="outline" size="sm" onClick={handleSignOut} className="gap-2">
+                <LogOut className="h-4 w-4" />
+                <span className="hidden sm:inline">Log out</span>
+              </Button>
+            </div>
           ) : (
-            <>
-              <Button variant="outline" size="sm" asChild>
-                <Link to="/login">Log in</Link>
-              </Button>
-              <Button size="sm" asChild className="gradient-primary border-0">
-                <Link to="/login">Sign up</Link>
-              </Button>
-            </>
-          )}
 
           {/* Mobile menu toggle */}
           <Button variant="ghost" size="icon" className="md:hidden" onClick={() => setMobileOpen(!mobileOpen)}>
