@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { toast } from "sonner";
 import Navbar from "@/components/Navbar";
-import { User, Key, CheckCircle, Upload } from "lucide-react";
+import { User, Key, CheckCircle, Upload, LogOut } from "lucide-react";
 import { Navigate } from "react-router-dom";
 
 const Profile = () => {
@@ -32,7 +32,25 @@ const Profile = () => {
       toast.error("Invalid CR code. Please try again.");
     } else {
       toast.success("CR role activated! You now have upload access.");
-      // Refresh to pick up new role
+      window.location.reload();
+    }
+    setSubmitting(false);
+  };
+
+  const handleDeactivateCR = async () => {
+    if (!user) return;
+    setSubmitting(true);
+
+    const { error } = await supabase
+      .from("user_roles")
+      .delete()
+      .eq("user_id", user.id)
+      .eq("role", "cr");
+
+    if (error) {
+      toast.error("Failed to leave CR role. Please try again.");
+    } else {
+      toast.success("You have left the CR role.");
       window.location.reload();
     }
     setSubmitting(false);
@@ -64,6 +82,27 @@ const Profile = () => {
                 <p className="text-sm text-foreground">Student</p>
               )}
             </div>
+
+            {/* CR deactivation */}
+            {isCR && (
+              <div className="space-y-3 rounded-lg border border-destructive/30 bg-destructive/5 p-4">
+                <p className="text-sm font-semibold text-destructive flex items-center gap-2">
+                  <LogOut className="h-4 w-4" />
+                  Leave CR Role
+                </p>
+                <p className="text-xs text-muted-foreground">
+                  Step down from your CR role. You will lose access to Upload Notes and the CR Dashboard.
+                </p>
+                <Button
+                  variant="destructive"
+                  className="w-full font-semibold"
+                  disabled={submitting}
+                  onClick={handleDeactivateCR}
+                >
+                  {submitting ? "Processing..." : "Leave CR Role"}
+                </Button>
+              </div>
+            )}
 
             {/* CR activation */}
             {!isCR && (
