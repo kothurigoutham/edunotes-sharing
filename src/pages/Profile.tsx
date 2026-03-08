@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { toast } from "sonner";
 import Navbar from "@/components/Navbar";
-import { User, Key, CheckCircle, Upload } from "lucide-react";
+import { User, Key, CheckCircle, Upload, LogOut } from "lucide-react";
 import { Navigate } from "react-router-dom";
 
 const Profile = () => {
