@@ -1,19 +1,21 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
+import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { toast } from "sonner";
 import Navbar from "@/components/Navbar";
-import { LogIn, UserPlus } from "lucide-react";
+import { LogIn, UserPlus, Key } from "lucide-react";
 
 const Login = () => {
   const [isSignUp, setIsSignUp] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [fullName, setFullName] = useState("");
+  const [crCode, setCrCode] = useState("");
   const [loading, setLoading] = useState(false);
   const { signIn, signUp } = useAuth();
   const navigate = useNavigate();
@@ -23,12 +25,35 @@ const Login = () => {
     setLoading(true);
 
     if (isSignUp) {
-      const { error } = await signUp(email, password, fullName);
+      const { error, data } = await supabase.auth.signUp({
+        email,
+        password,
+        options: { data: { full_name: fullName }, emailRedirectTo: window.location.origin },
+      });
+
       if (error) {
         toast.error(error.message);
-      } else {
-        toast.success("Account created! Check your email to confirm.");
+        setLoading(false);
+        return;
       }
+
+      // If CR code provided, verify and assign role
+      if (crCode.trim() && data.user) {
+        const { data: verifyData, error: verifyError } = await supabase.functions.invoke(
+          "verify-cr-code",
+          { body: { code: crCode.trim(), userId: data.user.id } }
+        );
+
+        if (verifyError || !verifyData?.success) {
+          toast.warning("Account created but CR code was invalid. You're registered as a student.");
+        } else {
+          toast.success("Account created as CR! Check your email to confirm.");
+          setLoading(false);
+          return;
+        }
+      }
+
+      toast.success("Account created! Check your email to confirm.");
     } else {
       const { error } = await signIn(email, password);
       if (error) {
@@ -73,6 +98,26 @@ const Login = () => {
                 <Label htmlFor="password">Password</Label>
                 <Input id="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="••••••••" required minLength={6} />
               </div>
+
+              {isSignUp && (
+                <div className="space-y-2">
+                  <Label htmlFor="crCode" className="flex items-center gap-2">
+                    <Key className="h-4 w-4 text-muted-foreground" />
+                    CR Secret Code <span className="text-xs text-muted-foreground">(optional)</span>
+                  </Label>
+                  <Input
+                    id="crCode"
+                    type="password"
+                    value={crCode}
+                    onChange={(e) => setCrCode(e.target.value)}
+                    placeholder="Enter code if you're a CR"
+                  />
+                  <p className="text-xs text-muted-foreground">
+                    Have a CR code? Enter it to get upload access.
+                  </p>
+                </div>
+              )}
+
               <Button type="submit" className="w-full gradient-primary border-0 font-semibold" disabled={loading}>
                 {loading ? "Please wait..." : isSignUp ? "Sign Up" : "Sign In"}
               </Button>
