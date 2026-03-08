@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { BookOpen, LogIn, LogOut, Upload, LayoutDashboard, Search, Menu, X } from "lucide-react";
+import { BookOpen, LogIn, LogOut, Upload, Search, Menu, X, UserCircle } from "lucide-react";
 
 const Navbar = () => {
   const { user, isCR, signOut } = useAuth();
@@ -73,10 +73,18 @@ const Navbar = () => {
           </form>
 
           {user ? (
-            <Button variant="outline" size="sm" onClick={handleSignOut} className="gap-2">
-              <LogOut className="h-4 w-4" />
-              <span className="hidden sm:inline">Log out</span>
-            </Button>
+            <div className="flex items-center gap-2">
+              <Button variant="ghost" size="sm" asChild>
+                <Link to="/profile" className="gap-2">
+                  <UserCircle className="h-4 w-4" />
+                  <span className="hidden sm:inline">Profile</span>
+                </Link>
+              </Button>
+              <Button variant="outline" size="sm" onClick={handleSignOut} className="gap-2">
+                <LogOut className="h-4 w-4" />
+                <span className="hidden sm:inline">Log out</span>
+              </Button>
+            </div>
           ) : (
             <>
               <Button variant="outline" size="sm" asChild>
@@ -87,8 +95,6 @@ const Navbar = () => {
               </Button>
             </>
           )}
-
-          {/* Mobile menu toggle */}
           <Button variant="ghost" size="icon" className="md:hidden" onClick={() => setMobileOpen(!mobileOpen)}>
             {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </Button>
