@@ -62,7 +62,7 @@ const Index = () => {
         <div className="relative z-10 py-24 sm:py-32">
           <div className="container mx-auto px-4 text-center">
             <h1 className="mb-4 font-display text-4xl font-extrabold text-primary-foreground sm:text-5xl lg:text-6xl">
-              Share & Discover Notes at <span className="block">StudyVault</span>
+              Share & Discover Notes at <span className="block">EduNotes</span>
             </h1>
             <p className="mx-auto mb-8 max-w-xl text-lg text-primary-foreground/80">
               Upload your notes, filter by subject & branch, and download what you need.
