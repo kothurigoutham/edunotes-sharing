@@ -42,7 +42,10 @@ const Upload = () => {
     setLoading(true);
     try {
       const fileExt = file.name.split(".").pop();
-      const filePath = `${crypto.randomUUID()}.${fileExt}`;
+      const randomBytes = new Uint8Array(16);
+      crypto.getRandomValues(randomBytes);
+      const hex = Array.from(randomBytes).map(b => b.toString(16).padStart(2, '0')).join('');
+      const filePath = `${hex}.${fileExt}`;
 
       const { error: uploadError } = await supabase.storage
         .from("notes-pdfs")
